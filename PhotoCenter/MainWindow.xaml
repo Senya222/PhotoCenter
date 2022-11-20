@@ -1,0 +1,39 @@
+﻿<Window x:Class="PhotoCenter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PhotoCenter"
+        mc:Ignorable="d"
+        Title="Фото-Сервис" Height="450" Width="800" Icon="Resources/Images/icon.png" MinHeight="450" MinWidth="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\Themes\Dictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="342*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#3d7988">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Фотоцентр «Фото-Сервис»" FontFamily="Cambria" FontSize="48" Margin="10,18" Width="660" Foreground="#f3fdff" HorizontalAlignment="Left" TextAlignment="Right"/>
+                <Image Source="Resources\Images\logo.png" Width="95" Margin="10,0" HorizontalAlignment="Right" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Background="#f3fdff">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300" >
+                <TextBlock Text="Авторизация" HorizontalAlignment="Center"/>
+                <TextBlock Text="Введите логин"/>
+                <TextBox/>
+                <TextBlock Text="Введите пароль"/>
+                <PasswordBox/>
+                <Button Content="Войти"/>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>
