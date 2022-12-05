@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhotoCenter.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,24 @@ namespace PhotoCenter.Pages
     /// <summary>
     /// Логика взаимодействия для PageAuto.xaml
     /// </summary>
-    public partial class PageAuto : Page
+    public partial class PageAuto : Page, IGettingPassword
     {
-        public PageAuto()
+        MainWindow mainWindow;
+        public PageAuto(MainWindow main)
         {
+            mainWindow = main;
             InitializeComponent();
+            (DataContext as AuthorizationViewModel).GettingPassword = this;
+        }
+        public string GetPassword() => _passwordBox.Password;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if ((DataContext as AuthorizationViewModel).LogIn())
+            {
+                mainWindow.Container.Navigate(new PageAdmin());
+            }
+            else MessageBox.Show("Неверный логин и/или пароль!");
         }
     }
 }

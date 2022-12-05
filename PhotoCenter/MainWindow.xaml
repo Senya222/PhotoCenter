@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PhotoCenter"
         mc:Ignorable="d"
-        Title="Фото-Сервис" Height="450" Width="800" Icon="Resources/Images/icon.png" MinHeight="450" MinWidth="800">
+        Title="Фото-Сервис" Height="600" Width="950" Icon="Resources/Images/icon.png" MinHeight="450" MinWidth="800">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -20,20 +20,10 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="#3d7988">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBlock Text="Фотоцентр «Фото-Сервис»" FontFamily="Cambria" FontSize="48" Margin="10,18" Width="660" Foreground="#f3fdff" HorizontalAlignment="Left" TextAlignment="Right"/>
+                <TextBlock Text="Фотоцентр «Фото-Сервис»" FontFamily="Cambria" FontSize="36" Foreground="#f3fdff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Image Source="Resources\Images\logo.png" Width="95" Margin="10,0" HorizontalAlignment="Right" />
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1" Background="#f3fdff">
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300" >
-                <TextBlock Text="Авторизация" HorizontalAlignment="Center"/>
-                <TextBlock Text="Введите логин"/>
-                <TextBox/>
-                <TextBlock Text="Введите пароль"/>
-                <PasswordBox/>
-                <Button Content="Войти"/>
-            </StackPanel>
-        </Grid>
-
+        <Frame x:Name="Container" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

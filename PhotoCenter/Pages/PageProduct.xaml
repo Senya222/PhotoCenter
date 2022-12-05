@@ -1,0 +1,92 @@
+﻿<Page x:Class="PhotoCenter.Pages.PageProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PhotoCenter.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageProduct"
+    xmlns:viewModel="clr-namespace:PhotoCenter.ViewModels">
+
+    <Page.DataContext>
+        <viewModel:ProductViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources\Themes\Dictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="166*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Width="200" >
+                    <TextBlock Margin="5"  Text="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    
+                    
+                    <TextBox x:Name="tetName" Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" Margin="5" TextChanged="texName_TextChanged" />
+                    
+                    
+                    
+                </StackPanel>
+                <StackPanel Width="200">
+                    <TextBlock Margin="5" Text="Сортировка" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <ComboBox SelectedIndex="{Binding ProductSort}" Margin="5" x:Name="ComboSortirovka" SelectionChanged="ComboSortirovka_SelectionChanged">
+                        <ComboBoxItem Content="по возрастанию"/>
+                        <ComboBoxItem Content="по убыванию"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Width="200">
+                    <TextBlock Margin="5" Text="Материал" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <ComboBox Margin="5" ItemsSource="{Binding Materials}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Material.Title}" IsChecked="{Binding IsChecked}" Unchecked="CheckBox_Unchecked" Checked="CheckBox_Checked"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Width="200">
+                    <TextBlock Margin="5" Text="Вид товара" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <ComboBox Margin="5" ItemsSource="{Binding TypePr}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding TypeProduct.Title}" IsChecked="{Binding IsChecked}" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+                <TextBlock Grid.Row="0" Text="Товары и услуги" TextAlignment="Center" VerticalAlignment="Center" />
+        <ListBox ItemsSource="{Binding Products}" Grid.Row="2" Background="Transparent" BorderBrush="Transparent" x:Name="ListBoxProd" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="20" Width="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="210"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Source="{Binding Path=Photo,Converter={StaticResource pathConverter}}" Width="150" Grid.Row="0" Stretch="Uniform" HorizontalAlignment="Center" Margin="5" Height="150"/>
+                        <StackPanel Grid.Row="1">
+                            <TextBlock Foreground="#3d7988" FontFamily="Cambria" Text="{Binding Title}" VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Center" Margin="5 5" Grid.Row="1" FontSize="16"></TextBlock>
+                            <TextBlock Foreground="#3d7988" FontFamily="Cambria" Text="{Binding Price,StringFormat=   Цена {0} руб.}" VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Center" Margin="5 5" Grid.Row="1" FontSize="16"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>

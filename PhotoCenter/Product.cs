@@ -20,7 +20,7 @@ namespace PhotoCenter
         public Nullable<int> Quantity { get; set; }
         public Nullable<int> Price { get; set; }
         public Nullable<int> MaterialID { get; set; }
-        public byte[] Photo { get; set; }
+        public string Photo { get; set; }
     
         public virtual Material Material { get; set; }
         public virtual TypeProduct TypeProduct { get; set; }

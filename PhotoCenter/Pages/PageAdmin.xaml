@@ -1,0 +1,58 @@
+﻿<Page x:Class="PhotoCenter.Pages.PageAdmin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PhotoCenter.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAdmin"
+      xmlns:viewModel="clr-namespace:PhotoCenter.ViewModels">
+
+    <Page.DataContext>
+        <viewModel:AdminViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources\Themes\Dictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="175"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="#3d7988">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="201"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1" Margin="0,10,0,0">
+                <Button Content="Касса"/>
+                <Button Content="Отчет" x:Name="btnReport" Click="btnReport_Click"/>
+                <Button Content="Заказы"/>
+                <Button Content="Клиенты" Name="btClient" Click="Button_Client"/>
+                <Button Content="Товары и услуги" Name="btProduct" Click="btProduct_Click"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Ellipse Width="70" Height="70" Margin="10">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding Worker.Photo, Converter={StaticResource pathConverter}}" Stretch="UniformToFill"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock Margin="5" Foreground="#f3fdff" TextAlignment="Left">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0} {1}">
+                            <Binding Path="Worker.FirstName"/>
+                            <Binding Path="Worker.LastName"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock Margin="5" Foreground="#f3fdff" Text="{Binding Worker.Post.Title}" TextAlignment="Left"/>
+            </StackPanel>
+        </Grid>
+        <Frame Grid.Column="1" x:Name="Container" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>
