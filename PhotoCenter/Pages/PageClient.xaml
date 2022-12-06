@@ -28,7 +28,8 @@
                 <Button x:Name="btAdd" Click="btAdd_Click" Content="Добавить" Margin="5"/>
             </StackPanel>
         </Grid>
-        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="dgClient" Grid.Row="2" Background="Transparent" SelectionMode="Single" GridLinesVisibility="All">
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="dgClient" Grid.Row="2"
+                  Background="Transparent" SelectionMode="Single" GridLinesVisibility="All">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding LastName}" Width="*" Header="Фамилия"/>
                 <DataGridTextColumn Binding="{Binding FirstName}" Width="*" Header="Имя"/>

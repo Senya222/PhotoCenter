@@ -29,12 +29,7 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Width="200" >
                     <TextBlock Margin="5"  Text="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    
-                    
                     <TextBox x:Name="tetName" Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" Margin="5" TextChanged="texName_TextChanged" />
-                    
-                    
-                    
                 </StackPanel>
                 <StackPanel Width="200">
                     <TextBlock Margin="5" Text="Сортировка" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -66,7 +61,8 @@
             </StackPanel>
         </Grid>
                 <TextBlock Grid.Row="0" Text="Товары и услуги" TextAlignment="Center" VerticalAlignment="Center" />
-        <ListBox ItemsSource="{Binding Products}" Grid.Row="2" Background="Transparent" BorderBrush="Transparent" x:Name="ListBoxProd" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
+        <ListBox ItemsSource="{Binding Products}" Grid.Row="2" Background="Transparent" BorderBrush="Transparent"
+                 x:Name="ListBoxProd" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
@@ -79,10 +75,13 @@
                             <RowDefinition Height="210"></RowDefinition>
                             <RowDefinition Height="auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Image Source="{Binding Path=Photo,Converter={StaticResource pathConverter}}" Width="150" Grid.Row="0" Stretch="Uniform" HorizontalAlignment="Center" Margin="5" Height="150"/>
+                        <Image Source="{Binding Path=Photo,Converter={StaticResource pathConverter}}" Width="150"
+                               Grid.Row="0" Stretch="Uniform" HorizontalAlignment="Center" Margin="5" Height="150"/>
                         <StackPanel Grid.Row="1">
-                            <TextBlock Foreground="#3d7988" FontFamily="Cambria" Text="{Binding Title}" VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Center" Margin="5 5" Grid.Row="1" FontSize="16"></TextBlock>
-                            <TextBlock Foreground="#3d7988" FontFamily="Cambria" Text="{Binding Price,StringFormat=   Цена {0} руб.}" VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Center" Margin="5 5" Grid.Row="1" FontSize="16"></TextBlock>
+                            <TextBlock Foreground="#3d7988" FontFamily="Cambria" Text="{Binding Title}" VerticalAlignment="Center"
+                                       TextAlignment="Center" HorizontalAlignment="Center" Margin="5 5" Grid.Row="1" FontSize="16"></TextBlock>
+                            <TextBlock Foreground="#3d7988" FontFamily="Cambria" Text="{Binding Price,StringFormat=   Цена {0} руб.}"
+                                       VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Center" Margin="5 5" Grid.Row="1" FontSize="16"></TextBlock>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

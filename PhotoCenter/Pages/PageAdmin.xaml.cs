@@ -25,22 +25,18 @@ namespace PhotoCenter.Pages
         {
             InitializeComponent();
         }
-
         private void ListBAcc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
-
         private void Button_Client(object sender, RoutedEventArgs e)
         {
             Container.Navigate(new PageClient());
         }
-
         private void btProduct_Click(object sender, RoutedEventArgs e)
         {
             Container.Navigate(new PageProduct());
         }
-
         private void btnReport_Click(object sender, RoutedEventArgs e)
         {
             Container.Navigate(new ReportPage());

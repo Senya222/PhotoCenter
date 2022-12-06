@@ -17,8 +17,10 @@ namespace PhotoCenter.ViewModels
         public ProductViewModel()
         {
             Products = new ObservableCollection<Product>();
-            TypePr = new ObservableCollection<MaterialFilter>(DBContext.GetContext().TypeProduct.Select(p => new MaterialFilter() { TypeProduct = p}));
-            Materials = new ObservableCollection<MaterialFilter>(DBContext.GetContext().Material.Select(p => new MaterialFilter() { Material = p}));
+            TypePr = new ObservableCollection<MaterialFilter>(DBContext.GetContext().
+                TypeProduct.Select(p => new MaterialFilter() { TypeProduct = p}));
+            Materials = new ObservableCollection<MaterialFilter>(DBContext.GetContext().
+                Material.Select(p => new MaterialFilter() { Material = p}));
             GetProduct();
         }
         public void GetProduct()
